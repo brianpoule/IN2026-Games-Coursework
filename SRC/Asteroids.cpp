@@ -89,22 +89,36 @@ void Asteroids::Stop()
 
 void Asteroids::OnKeyPressed(uchar key, int x, int y)
 {
-	if (mState == STATE_START_SCREEN)
-	{
-		// If 's' or 'S' is pressed, start the game
-		if (key == 's' || key == 'S')
-		{
-			StartGame();
-		}
-	}
-	else if (mState == STATE_PLAYING) {
+	// Handle input during the main game
+	if (mState == STATE_PLAYING) {
 		switch (key)
 		{
 		case ' ':
 			mSpaceship->Shoot();
 			break;
+
+		case 't':
+		case 'T':
+		{ // Create a local scope for variables
+			float world_width = mGameDisplay->GetWidth();
+			float world_height = mGameDisplay->GetHeight();
+			GLVector3f random_position;
+			random_position.x = (float)(rand() % (int)world_width);
+			random_position.y = (float)(rand() % (int)world_height);
+			mSpaceship->SetPosition(random_position);
+			break;
+		}
+
 		default:
 			break;
+		}
+	}
+	// Handle input on the start screen
+	else if (mState == STATE_START_SCREEN)
+	{
+		if (key == 's' || key == 'S')
+		{
+			StartGame();
 		}
 	}
 }
