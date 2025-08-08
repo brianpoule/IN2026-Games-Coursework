@@ -12,6 +12,8 @@
 #include "GUILabel.h"
 #include "Explosion.h"
 #include "ExtraLife.h" 
+#include "ShieldPowerUp.h"
+
 
 // PUBLIC INSTANCE CONSTRUCTORS ///////////////////////////////////////////////
 
@@ -188,6 +190,10 @@ void Asteroids::OnObjectRemoved(GameWorld* world, shared_ptr<GameObject> object)
 			msg_stream << "Lives: " << mPlayer.GetLives();
 			mLivesLabel->SetText(msg_stream.str());
 		}
+		if (object->GetType() == GameObjectType("Shield"))
+		{
+			mSpaceship->ActivateShield();
+		}
 	}
 }
 
@@ -215,7 +221,13 @@ void Asteroids::OnTimer(int value)
 
 	if (value == CREATE_POWERUP)
 	{
-		mGameWorld->AddObject(CreateExtraLife());
+		// Randomly choose between Extra Life and Shield
+		if (rand() % 2 == 0) {
+			mGameWorld->AddObject(CreateExtraLife());
+		}
+		else {
+			mGameWorld->AddObject(CreateShieldPowerUp());
+		}
 		SetTimer(15000, CREATE_POWERUP); // Reset the timer
 	}
 
@@ -398,6 +410,16 @@ shared_ptr<GameObject> Asteroids::CreateExplosion()
 	return explosion;
 }
 
+shared_ptr<GameObject> Asteroids::CreateShieldPowerUp()
+{
+	shared_ptr<GameObject> shield_powerup = make_shared<ShieldPowerUp>();
+	shield_powerup->SetBoundingShape(make_shared<BoundingSphere>(shield_powerup->GetThisPtr(), 10.0f));
+	Animation* anim_ptr = AnimationManager::GetInstance().GetAnimationByName("asteroid1");
+	shared_ptr<Sprite> sprite = make_shared<Sprite>(anim_ptr->GetWidth(), anim_ptr->GetHeight(), anim_ptr);
+	shield_powerup->SetSprite(sprite);
+	shield_powerup->SetScale(0.2f); // Make it a different size
+	return shield_powerup;
+}
 
 
 

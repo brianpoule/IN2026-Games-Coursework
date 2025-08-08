@@ -12,6 +12,7 @@ using namespace std;
 Spaceship::Spaceship()
 	: GameObject("Spaceship"), mThrust(0)
 {
+	mHasShield = false;
 }
 
 /** Construct a spaceship with given position, velocity, acceleration, angle, and rotation. */
@@ -30,6 +31,9 @@ Spaceship::Spaceship(const Spaceship& s)
 Spaceship::~Spaceship(void)
 {
 }
+
+
+
 
 // PUBLIC INSTANCE METHODS ////////////////////////////////////////////////////
 
@@ -91,7 +95,10 @@ void Spaceship::Shoot(void)
 	mWorld->AddObject(bullet);
 
 }
-
+void Spaceship::ActivateShield()
+{
+	mHasShield = true;
+}
 bool Spaceship::CollisionTest(shared_ptr<GameObject> o)
 {
 	if (o->GetType() != GameObjectType("Asteroid")) return false;
@@ -100,7 +107,13 @@ bool Spaceship::CollisionTest(shared_ptr<GameObject> o)
 	return mBoundingShape->CollisionTest(o->GetBoundingShape());
 }
 
-void Spaceship::OnCollision(const GameObjectList &objects)
+void Spaceship::OnCollision(const GameObjectList& objects)
 {
-	mWorld->FlagForRemoval(GetThisPtr());
+	if (mHasShield) {
+		mHasShield = false; // Shield absorbs the hit and is destroyed
+	}
+	else {
+		// No shield, so the ship is destroyed
+		mWorld->FlagForRemoval(GetThisPtr());
+	}
 }

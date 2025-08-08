@@ -85,6 +85,8 @@ private:
 	void CreateAsteroids(const uint num_asteroids);
 	shared_ptr<GameObject> CreateExtraLife();
 	shared_ptr<GameObject> CreateExplosion();
+	shared_ptr<GameObject> CreateShieldPowerUp();
+	
 
 	// Timer constants
 	const static uint SHOW_GAME_OVER = 0;

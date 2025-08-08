@@ -109,6 +109,7 @@
     <ClCompile Include="..\..\SRC\Explosion.cpp" />
     <ClCompile Include="..\..\SRC\ExtraLife.cpp" />
     <ClCompile Include="..\..\src\main.cpp" />
+    <ClCompile Include="..\..\SRC\ShieldPowerUp.cpp" />
     <ClCompile Include="..\..\src\Spaceship.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +122,7 @@
     <ClInclude Include="..\..\SRC\IScoreListener.h" />
     <ClInclude Include="..\..\SRC\Player.h" />
     <ClInclude Include="..\..\SRC\ScoreKeeper.h" />
+    <ClInclude Include="..\..\SRC\ShieldPowerUp.h" />
     <ClInclude Include="..\..\src\Spaceship.h" />
   </ItemGroup>
   <ItemGroup>

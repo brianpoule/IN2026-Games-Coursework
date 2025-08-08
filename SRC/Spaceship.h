@@ -26,6 +26,7 @@ public:
 
 	bool CollisionTest(shared_ptr<GameObject> o);
 	void OnCollision(const GameObjectList &objects);
+	void ActivateShield();
 
 private:
 	float mThrust;
@@ -33,6 +34,8 @@ private:
 	shared_ptr<Shape> mSpaceshipShape;
 	shared_ptr<Shape> mThrusterShape;
 	shared_ptr<Shape> mBulletShape;
+
+	bool mHasShield;
 };
 
 #endif
