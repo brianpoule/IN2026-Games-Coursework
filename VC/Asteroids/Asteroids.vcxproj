@@ -122,8 +122,9 @@
     <ClInclude Include="..\..\src\Spaceship.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Desktop\IN2026 Coursework Code\VC\Engine\Engine.vcxproj">
+    <ProjectReference Include="..\Engine\Engine.vcxproj">
       <Project>{a573c32d-8f4c-442b-84a7-287d28ffa333}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
