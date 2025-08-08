@@ -10,6 +10,13 @@
 #include "Player.h"
 #include "IPlayerListener.h"
 
+enum GameState
+{
+	STATE_START_SCREEN, // The new start screen/menu
+	STATE_PLAYING,      // The main game
+	STATE_GAME_OVER
+};
+
 class GameObject;
 class Spaceship;
 class GUILabel;
@@ -17,7 +24,7 @@ class GUILabel;
 class Asteroids : public GameSession, public IKeyboardListener, public IGameWorldListener, public IScoreListener, public IPlayerListener
 {
 public:
-	Asteroids(int argc, char *argv[]);
+	Asteroids(int argc, char* argv[]);
 	virtual ~Asteroids(void);
 
 	virtual void Start(void);
@@ -40,7 +47,7 @@ public:
 
 	// Declaration of IGameWorldListener interface //////////////////////////////
 
-	void OnWorldUpdated(GameWorld* world) {}
+	void OnWorldUpdated(GameWorld* world);
 	void OnObjectAdded(GameWorld* world, shared_ptr<GameObject> object) {}
 	void OnObjectRemoved(GameWorld* world, shared_ptr<GameObject> object);
 
@@ -48,24 +55,42 @@ public:
 	void OnTimer(int value);
 
 private:
-	shared_ptr<Spaceship> mSpaceship;
+	// Game State
+	GameState mState;
+
+	// GUI Labels
+	shared_ptr<GUILabel> mMenuTitleLabel;
+	shared_ptr<GUILabel> mMenuStartLabel;
+	shared_ptr<GUILabel> mMenuDifficultyLabel;
+	shared_ptr<GUILabel> mMenuInstructionsLabel;
+	shared_ptr<GUILabel> mMenuScoresLabel;
+
 	shared_ptr<GUILabel> mScoreLabel;
 	shared_ptr<GUILabel> mLivesLabel;
 	shared_ptr<GUILabel> mGameOverLabel;
 
+	// Game Objects
+	shared_ptr<Spaceship> mSpaceship;
+	list<shared_ptr<GameObject>> mObjectsToAdd;
+
+	// Game State Variables
 	uint mLevel;
 	uint mAsteroidCount;
 
+	// Private Methods
+	void StartGame();
 	void ResetSpaceship();
 	shared_ptr<GameObject> CreateSpaceship();
 	void CreateGUI();
 	void CreateAsteroids(const uint num_asteroids);
 	shared_ptr<GameObject> CreateExplosion();
-	
+
+	// Timer constants
 	const static uint SHOW_GAME_OVER = 0;
 	const static uint START_NEXT_LEVEL = 1;
 	const static uint CREATE_NEW_PLAYER = 2;
 
+	// Listeners and Keepers
 	ScoreKeeper mScoreKeeper;
 	Player mPlayer;
 };
