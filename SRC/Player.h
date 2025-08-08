@@ -2,7 +2,6 @@
 #define __PLAYER_H__
 
 #include "GameUtil.h"
-
 #include "GameObject.h"
 #include "GameObjectType.h"
 #include "IPlayerListener.h"
@@ -14,8 +13,10 @@ public:
 	Player() { mLives = 3; }
 	virtual ~Player() {}
 
-	void OnWorldUpdated(GameWorld* world) {}
+	int GetLives() { return mLives; }
+	void SetLives(int lives) { mLives = lives; }
 
+	void OnWorldUpdated(GameWorld* world) {}
 	void OnObjectAdded(GameWorld* world, shared_ptr<GameObject> object) {}
 
 	void OnObjectRemoved(GameWorld* world, shared_ptr<GameObject> object)

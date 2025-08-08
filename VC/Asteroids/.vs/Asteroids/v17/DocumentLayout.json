@@ -1,0 +1,52 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\bpoul\\Documents\\GitHub\\IN2026-Games-Coursework\\VC\\Asteroids\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{97AF88B3-4E3C-43B5-8770-C655BCAAB734}|Asteroids.vcxproj|C:\\Users\\bpoul\\Documents\\GitHub\\IN2026-Games-Coursework\\SRC\\ExtraLife.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97AF88B3-4E3C-43B5-8770-C655BCAAB734}|Asteroids.vcxproj|C:\\Users\\bpoul\\Documents\\GitHub\\IN2026-Games-Coursework\\src\\Asteroids.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ExtraLife.cpp",
+              "DocumentMoniker": "C:\\Users\\bpoul\\Documents\\GitHub\\IN2026-Games-Coursework\\SRC\\ExtraLife.cpp",
+              "RelativeDocumentMoniker": "..\\..\\SRC\\ExtraLife.cpp",
+              "ToolTip": "C:\\Users\\bpoul\\Documents\\GitHub\\IN2026-Games-Coursework\\SRC\\ExtraLife.cpp",
+              "RelativeToolTip": "..\\..\\SRC\\ExtraLife.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAswBIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-08-08T11:11:32.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Asteroids.h",
+              "DocumentMoniker": "C:\\Users\\bpoul\\Documents\\GitHub\\IN2026-Games-Coursework\\SRC\\Asteroids.h",
+              "RelativeDocumentMoniker": "..\\..\\SRC\\Asteroids.h",
+              "ToolTip": "C:\\Users\\bpoul\\Documents\\GitHub\\IN2026-Games-Coursework\\SRC\\Asteroids.h",
+              "RelativeToolTip": "..\\..\\SRC\\Asteroids.h",
+              "ViewState": "AgIAACMAAAAAAAAAAAAcwFUAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-08-08T11:07:14.112Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
